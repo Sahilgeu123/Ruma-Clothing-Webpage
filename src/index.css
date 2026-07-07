@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #0d0d0d;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 220vh;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.text-black {
+  color: #000 !important;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 220vh;
+}
+
+.scene-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  display: block;
+}
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(13, 13, 13, 0.96);
+  z-index: 20;
+}
+
+.loading-card {
+  width: min(420px, 92vw);
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: rgba(18, 18, 18, 0.9);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.loading-label {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.loading-meter {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.loading-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7c5cff, #4ae8ff);
+  box-shadow: 0 0 16px rgba(74, 232, 255, 0.4);
+  transition: width 0.2s ease;
+}
+
+.loading-percent {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f7f7f7;
+}
+
+.scroll-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: transparent;
+}
+
+.hero-panel {
+  min-height: 120vh;
+  display: grid;
+  place-items: center;
+  padding: 0 24px;
+}
+
+.hero-copy {
+  max-width: 940px;
+  text-align: center;
+  padding: 72px 0;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #8c9cff;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.hero-copy p {
+  margin: 24px auto 0;
+  max-width: 720px;
+  line-height: 1.9;
+  color: rgba(244, 244, 244, 0.88);
+  font-size: 1.05rem;
+}
+
+.detail-panel {
+  padding: 80px 24px;
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: background 2s ease, backdrop-filter 2s ease;
+  will-change: backdrop-filter, background;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.detail-panel.blur-active {
+  background: rgba(0, 0, 0, 0.96);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+.detail-grid {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.detail-grid article {
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(19, 19, 19, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+.detail-grid h2 {
+  margin: 0 0 14px;
+  font-size: 1.4rem;
+}
+
+.detail-grid p {
+  margin: 0;
+  color: rgba(237, 237, 237, 0.8);
+  line-height: 1.85;
+}
