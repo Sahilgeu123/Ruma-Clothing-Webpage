@@ -1,18 +1,17 @@
-import { useState } from 'react';
-import Hero from './Hero';
-import Detail from './Detail';
+import Hero from './Components/Hero';
+import Detail from './Components/Detail';
 import ModelCanvas from './ModelCanvas';
+import Navbar from './Components/Navbar';
 
 function App() {
-  const [detailBlurActive, setDetailBlurActive] = useState(false);
-
   return (
     <div className="app-shell">
-      <ModelCanvas onBlurChange={setDetailBlurActive} />
+      <ModelCanvas />
 
       <div className="scroll-content">
+        <Navbar/>
         <Hero />
-        <Detail blurActive={detailBlurActive} />
+        <Detail />
       </div>
     </div>
   );

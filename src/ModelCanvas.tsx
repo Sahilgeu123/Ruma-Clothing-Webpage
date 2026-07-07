@@ -1,8 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-
-type Props = {
-    onBlurChange?: (active: boolean) => void;
-};
+import { useEffect, useRef, useState } from 'react';
 
 const FRAME_COUNT = 176;
 const IMAGE_PATH = (index: number) => `/modelimage/ezgif-frame-${String(index).padStart(3, '0')}.jpg`;
@@ -11,13 +7,12 @@ const LERP_FACTOR = 0.1;
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
 
-export default function ModelCanvas({ onBlurChange }: Props) {
+export default function ModelCanvas() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const imageCacheRef = useRef<HTMLImageElement[]>([]);
     const targetProgressRef = useRef(0);
     const currentProgressRef = useRef(0);
     const animationRef = useRef<number | null>(null);
-    const scrollBlurTimeoutRef = useRef<number | undefined>(undefined);
     const [loadedCount, setLoadedCount] = useState(0);
 
     useEffect(() => {
@@ -39,31 +34,16 @@ export default function ModelCanvas({ onBlurChange }: Props) {
             targetProgressRef.current = clamp(progress, 0, 1);
         };
 
-        const triggerDetailBlur = () => {
-            if (scrollBlurTimeoutRef.current !== undefined) {
-                window.clearTimeout(scrollBlurTimeoutRef.current);
-            }
-            if (onBlurChange) onBlurChange(true);
-            scrollBlurTimeoutRef.current = window.setTimeout(() => {
-                if (onBlurChange) onBlurChange(false);
-                scrollBlurTimeoutRef.current = undefined;
-            }, 1200);
-        };
-
         const handleScroll = () => {
             updateTargetProgress();
-            triggerDetailBlur();
         };
 
         updateTargetProgress();
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            if (scrollBlurTimeoutRef.current !== undefined) {
-                window.clearTimeout(scrollBlurTimeoutRef.current);
-            }
         };
-    }, [onBlurChange]);
+    }, []);
 
     const resizeCanvas = () => {
         const canvas = canvasRef.current;
@@ -111,8 +91,6 @@ export default function ModelCanvas({ onBlurChange }: Props) {
 
         context.save();
         context.scale(dpr, dpr);
-        context.fillStyle = '#0d0d0d';
-        context.fillRect(0, 0, canvasWidth, canvasHeight);
         context.drawImage(image, offsetX, offsetY, drawWidth, drawHeight);
         context.restore();
     };
@@ -154,10 +132,10 @@ export default function ModelCanvas({ onBlurChange }: Props) {
 
     return (
         <>
-            <canvas ref={canvasRef} className="scene-canvas" aria-hidden="true" />
+            <canvas ref={canvasRef} className="scene-canvas pt-17" aria-hidden="true" />
 
             {!hasLoaded && (
-                <div className="loading-screen z-50">
+                <div className="loading-screen z-10">
                     <div className="loading-card">
                         <span className="loading-label">Rendering model preview</span>
                         <div className="loading-meter">
