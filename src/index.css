@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+.font {
+  letter-spacing: 0.3em;
+}
+.font2{
+  letter-spacing: 0.1em;
+}
+
+
+
 * {
   box-sizing: border-box;
 }

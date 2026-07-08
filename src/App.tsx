@@ -1,5 +1,5 @@
 import Hero from './Components/Hero';
-import Detail from './Components/Detail';
+import Detail from './Components/Collection';
 import ModelCanvas from './ModelCanvas';
 import Navbar from './Components/Navbar';
 
