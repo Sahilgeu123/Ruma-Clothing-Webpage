@@ -1,8 +1,6 @@
-import img from "../../public/clothImages/image2.png"
-
-export default function Detail() {
+export default function Collection() {
     return (
-        <section className="flex flex-col md:flex-row h-screen mt-200 min-h-screen detail ">
+        <section className="flex flex-col md:flex-row h-screen mt-200 md:mt-50  min-h-screen detail ">
             <div className=" w-full md:w-1/2 flex h-full md:backdrop-blur-md  bg-transparent ">
                 <div className="w-39 bg-black h-full text-white hidden  md:flex
               flex-col gap-7 justify-center items-center  pt-5 text-2xl">
@@ -18,7 +16,7 @@ export default function Detail() {
                     <p>N</p>
                 </div>
                 <div className="h-full w-full hidden md:flex items-center justify-center">
-                    <img className="w-90 h-170 mt-13 " src={img} alt="" />
+                    <img className="w-90 h-170 mt-13 " src="/clothImages/image2.png" alt="" />
                 </div>
             </div>
             <div className="min-h-screen md:w-1/2 relative bg-black text-white">

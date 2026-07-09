@@ -1,7 +1,9 @@
 import Hero from './Components/Hero';
-import Detail from './Components/Collection';
+import Collection from './Components/Collection';
 import ModelCanvas from './ModelCanvas';
 import Navbar from './Components/Navbar';
+import Detail from './Components/Detail';
+import Final from './Components/Final';
 
 function App() {
   return (
@@ -9,9 +11,11 @@ function App() {
       <ModelCanvas />
 
       <div className="scroll-content">
-        <Navbar/>
+        <Navbar />
         <Hero />
+        <Collection />
         <Detail />
+        <Final/>
       </div>
     </div>
   );

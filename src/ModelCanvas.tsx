@@ -14,6 +14,7 @@ export default function ModelCanvas() {
     const currentProgressRef = useRef(0);
     const animationRef = useRef<number | null>(null);
     const [loadedCount, setLoadedCount] = useState(0);
+    const [isInAnimationSections, setIsInAnimationSections] = useState(false);
 
     useEffect(() => {
         const images: HTMLImageElement[] = [];
@@ -29,9 +30,38 @@ export default function ModelCanvas() {
 
     useEffect(() => {
         const updateTargetProgress = () => {
-            const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = scrollRange > 0 ? window.scrollY / scrollRange : 0;
-            targetProgressRef.current = clamp(progress, 0, 1);
+            // Get Hero section only
+            const heroSection = document.querySelector('.hero-fullscreen');
+
+            if (!heroSection) {
+                targetProgressRef.current = 0;
+                setIsInAnimationSections(false);
+                return;
+            }
+
+            // Get Hero section absolute positions
+            const heroStart = heroSection.getBoundingClientRect().top + window.scrollY;
+            const heroEnd = heroSection.getBoundingClientRect().bottom + window.scrollY;
+            const scrollRange = heroEnd - heroStart;
+
+            if (scrollRange <= 0) {
+                targetProgressRef.current = 0;
+                setIsInAnimationSections(false);
+                return;
+            }
+
+            // Calculate progress based on scroll position within Hero section only
+            const scrollPosition = window.scrollY - heroStart;
+
+            // Only animate if within Hero section
+            if (scrollPosition >= 0 && scrollPosition <= scrollRange) {
+                setIsInAnimationSections(true);
+                const progress = scrollPosition / scrollRange;
+                targetProgressRef.current = clamp(progress, 0, 1);
+            } else {
+                setIsInAnimationSections(false);
+                targetProgressRef.current = scrollPosition < 0 ? 0 : 1;
+            }
         };
 
         const handleScroll = () => {
@@ -132,9 +162,14 @@ export default function ModelCanvas() {
 
     return (
         <>
-            <canvas ref={canvasRef} className="scene-canvas pt-17" aria-hidden="true" />
+            <canvas
+                ref={canvasRef}
+                className="scene-canvas pt-17"
+                aria-hidden="true"
+                style={{ opacity: isInAnimationSections ? 1 : 0, pointerEvents: isInAnimationSections ? 'auto' : 'none' }}
+            />
 
-            {!hasLoaded && (
+            {!hasLoaded && isInAnimationSections && (
                 <div className="loading-screen z-10">
                     <div className="loading-card">
                         <span className="loading-label">Rendering model preview</span>
