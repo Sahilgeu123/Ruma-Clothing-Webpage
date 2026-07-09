@@ -37,7 +37,7 @@ const Detail = () => {
 
 
       </div>
-      <div className="flex flex-col gap-10 md:flex-row py-10 md:py-0  md:mt-25 text-sm md:text-md justify-between items-center">
+      <div className="flex flex-col gap-10 md:flex-row py-10 md:py-0 md:mt-25 text-sm md:text-md justify-between items-center">
         <div className="ca1  md:ml-10 xl:ml-55 flex gap-30 xl:gap-50">
           <div className="xl:ml-30">
             <img src="" alt="" />

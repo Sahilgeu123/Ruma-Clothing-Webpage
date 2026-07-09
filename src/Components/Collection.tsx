@@ -1,6 +1,6 @@
 export default function Collection() {
     return (
-        <section className="flex flex-col md:flex-row h-screen mt-200 md:mt-50  min-h-screen detail ">
+        <section className="flex flex-col md:flex-row h-screen mt-200 md:mt-70  min-h-screen detail ">
             <div className=" w-full md:w-1/2 flex h-full md:backdrop-blur-md  bg-transparent ">
                 <div className="w-39 bg-black h-full text-white hidden  md:flex
               flex-col gap-7 justify-center items-center  pt-5 text-2xl">
