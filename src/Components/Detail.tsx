@@ -1,7 +1,7 @@
 const Detail = () => {
   return (
     <section className="w-full h-screen bg-black/10">
-      <div className="flex flex-col md:flex-row  bg-black  justify-between items-center gap-10 w-full md:h-2/3">
+      <div className="flex flex-col md:flex-row py-20  bg-black  justify-between items-center gap-10 w-full md:h-2/3">
 
         <div className="text-white flex flex-col  md:ml-40 items-center">
           <div className="border-4 p-2    border-white ">

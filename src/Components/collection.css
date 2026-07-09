@@ -1,0 +1,10 @@
+
+/*mobile*/
+@media (min-width:360px) and (max-width:414px)  {
+  .context p{
+    left:17px
+  }
+  .context button{
+    left: 15px;
+  }
+}

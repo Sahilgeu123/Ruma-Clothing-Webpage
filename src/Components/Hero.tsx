@@ -5,7 +5,7 @@ export default function Hero() {
         <section className="hero-fullscreen relative w-full h-screen min-h-screen bg-transparent flex items-center justify-center overflow-hidden ">
 
             <div className="absolute inset-0 flex items-center justify-center z-6">
-                <h1 className="text-[160px] md:text-[220px] lg:text-[320px] font-bold tracking-tight text-gray-400/50 select-none pointer-events-none z-10 ">
+                <h1 className="text-[130px] sm:text-[160px] md:text-[220px] lg:text-[320px] font-bold tracking-tight text-gray-400/50 select-none pointer-events-none z-10 ">
                     Ruma
                 </h1>
             </div>

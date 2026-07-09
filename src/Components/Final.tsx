@@ -2,7 +2,7 @@ import "./final.css"
 
 const Final = () => {
     return (
-        <section className='w-screen mt-60 md:mt-0 h-screen flex '>
+        <section className='w-screen mt-110 md:mt-0 h-screen flex '>
             <div className="xl:w-1/2 w-screen h-full ">
                 <div className="flex flex-col w-full h-8/9 justify-between items-start">
                     <div>
@@ -51,7 +51,7 @@ const Final = () => {
                 <img className="z-5 w-full h-screen" src="/clothImages/image6.jpg" alt="" />
                 <div className="z-10 h-[814px] w-40 border-r-2 border-white bg-black/30 backdrop-blur-xs absolute "></div>
                 <div className="z-10 h-[814px] w-95 border-l-2 border-white bg-black/30 backdrop-blur-xs absolute right-0"></div>
-                <div className="z-10 h-1/7 w-[415px] border-white border-t-2 bg-black/30 backdrop-blur-md absolute left-40 bottom-0 "></div>
+                <div className="z-10 h-[102px] w-[419px] border-white border-t-2 bg-black/30 backdrop-blur-md absolute left-[158px] bottom-0 "></div>
             </div>
         </section>
     )

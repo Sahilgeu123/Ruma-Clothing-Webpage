@@ -1,3 +1,4 @@
+import "./collection.css"
 export default function Collection() {
     return (
         <section className="flex flex-col md:flex-row h-screen mt-200 md:mt-70  min-h-screen detail ">
@@ -19,7 +20,7 @@ export default function Collection() {
                     <img className="w-90 h-170 mt-13 " src="/clothImages/image2.png" alt="" />
                 </div>
             </div>
-            <div className="min-h-screen md:w-1/2 relative bg-black text-white">
+            <div className="context min-h-screen md:w-1/2 relative bg-black text-white">
                 <p className=" absolute font  top-37 left-20 md:left-20 xl:left-50 text-3xl ">NEW SEASON</p>
                 <p className=" absolute font2 top-53 left-20 md:left-20 xl:left-50 text-9xl ">NEW <br /> VIBES</p>
                 <p className=" absolute font2 bottom-50 left-20 md:left-20 xl:left-50 text-2xl">Discover everything</p>
