@@ -46,12 +46,12 @@ const Final = () => {
 
                 </div>
             </div>
-            <div className="image relative xl:flex w-0 lg:w-1/2  h-full hidden bg-zinc-300">
-
-                <img className="z-5 w-full h-screen" src="/clothImages/image6.jpg" alt="" />
-                <div className="z-10 h-[814px] w-40 border-r-2 border-white bg-black/30 backdrop-blur-xs absolute "></div>
-                <div className="z-10 h-[814px] w-95 border-l-2 border-white bg-black/30 backdrop-blur-xs absolute right-0"></div>
-                <div className="z-10 h-[102px] w-[419px] border-white border-t-2 bg-black/30 backdrop-blur-md absolute left-[158px] bottom-0 "></div>
+            <div className="image relative xl:flex flex-col w-0 lg:w-1/2 h-full hidden bg-zinc-300 overflow-hidden">
+                <img className="absolute inset-0 w-full h-full object-cover z-0" src="/clothImages/image6.jpg" alt="" />
+                <div className="w-full h-full flex justify-between">
+                    <div className="z-10 h-full w-50 border-r-2 border-white bg-black/30 backdrop-blur-xs   flex"></div>
+                    <div className="z-10 h-full w-85 lg:border-l-2 border-white bg-black/30 backdrop-blur-xs  flex"></div>
+                </div>
             </div>
         </section>
     )
